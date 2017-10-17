@@ -1,16 +1,18 @@
 package com.robertlevenbach.hhz.window;
 
+import com.robertlevenbach.hhz.framework.GameObject;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 /**
- *
+ * Alle objecten(spelers, guns, etc.) in het spel extenden deze class "Game"> alleen effecten niet.
  */
 public class Game extends Canvas implements Runnable {
 
     private boolean running=false;
     private Thread thread;
-
+    
 
     public synchronized void start(){
         if(running==true){
@@ -78,7 +80,8 @@ public class Game extends Canvas implements Runnable {
         //Nu de graphics bouwen
         Graphics g = bs.getDrawGraphics();
         //////////////////////////////////// Alles wordt tussen deze lijnen getekend!
-
+        g.setColor(Color.BLUE);
+        g.fillRect(0,0, getWidth(), getHeight());
 
 
         ////////////////////////////////
