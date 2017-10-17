@@ -1,27 +1,33 @@
+import Screen.Animation;
+import Screen.Frame;
+
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
+
 public class Launcher {
 
     Launcher launcher;
-
+    Frame frame;
+    Animation animation;
 
     public static void main(String[] args){
         new Launcher().launch();
     }
 
     private void launch() {
-        int age =2;
-        switchStatement(age);
-
+        makeGame();
     }
 
-    public int switchStatement(int age){
-        switch (age){
-            case 1:
-                System.out.println("you can crawl");
-                return 1;
-            case 2:
-                System.out.println("you can say hi");
-                return 2;
+    private void makeGame() {
+//        frame = new Frame();
+//        frame.buildScreen();
+        animation = new Animation();
+        try {
+            animation.animateMethod();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        return 0;
     }
+
+
 }
