@@ -13,15 +13,15 @@ public class Launcher {
 
     }
 
-    public String switchStatement(int age){
+    public int switchStatement(int age){
         switch (age){
             case 1:
                 System.out.println("you can crawl");
-                return "you can crawl";
+                return 1;
             case 2:
                 System.out.println("you can say hi");
-                return "you can say hi";
+                return 2;
         }
-        return "you have no age";
+        return 0;
     }
 }
