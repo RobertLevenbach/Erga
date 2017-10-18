@@ -1,9 +1,14 @@
 package com.robertlevenbach.hhz.window;
 
+import com.robertlevenbach.hhz.Objects.Test;
 import com.robertlevenbach.hhz.framework.GameObject;
+import com.robertlevenbach.hhz.framework.Objectid;
+import com.sun.corba.se.spi.ior.ObjectId;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.util.LinkedList;
+import java.util.Random;
 
 /**
  * Alle objecten(spelers, guns, etc.) in het spel extenden deze class "Game"> alleen effecten niet.
@@ -12,7 +17,20 @@ public class Game extends Canvas implements Runnable {
 
     private boolean running=false;
     private Thread thread;
-    
+
+    //Handler object
+    Handler handler;
+
+    //init methode start alles voor de loop(dus bouwt alles op)
+    private void init() {
+        handler=new Handler();
+
+        Random rand= new Random();
+
+        for(int i=0;i<50;i++) {
+            handler.addObject(new Test(rand.nextInt(500), rand.nextInt(500), Objectid.Test));
+        }
+    }
 
     public synchronized void start(){
         if(running==true){
@@ -28,6 +46,9 @@ public class Game extends Canvas implements Runnable {
      * Deze class zorgt voor dat de GameLoopt
      */
     public void run() {
+
+        init();
+        this.requestFocus();
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
@@ -56,14 +77,18 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
-    private void tick(){
+    /**
+     * hier alles dat moet ticken
+     */
 
+    private void tick(){
+        handler.tick();
     }
 
 
     /**
      *  Deze class zorgt voor alles dat je gaat renderen
-     *  this gaat naar de extention van Canvas in de method naam
+     *  "this" gaat naar de extention van Canvas in de method naam
      *  Bufferstrategy is voor: als je eerste beeld klaar is met laden, kan die een extra beeld maken alvast
      *  De 3 bepaalt het aantal schermen dat kunnen laden(incl. afgebeelde scherm)
      *  RENDER WORDT ELKE SECONDE ZIEK VAAK AANGEROEPEN
@@ -83,6 +108,7 @@ public class Game extends Canvas implements Runnable {
         g.setColor(Color.BLUE);
         g.fillRect(0,0, getWidth(), getHeight());
 
+        handler.render(g);
 
         ////////////////////////////////
         g.dispose();

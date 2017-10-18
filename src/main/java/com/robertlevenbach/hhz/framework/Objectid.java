@@ -6,6 +6,7 @@ package com.robertlevenbach.hhz.framework;
 
 public enum Objectid {
 
-    Player();
+    Player(),
+    Test()
 
 }

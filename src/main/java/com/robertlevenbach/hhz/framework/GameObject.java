@@ -1,6 +1,7 @@
 package com.robertlevenbach.hhz.framework;
 
 import java.awt.*;
+import java.util.LinkedList;
 
 public abstract class GameObject {
     /**
@@ -22,7 +23,7 @@ public abstract class GameObject {
     }
 
 
-    public abstract void tick();
+    public abstract void tick(LinkedList<GameObject> object);
     public abstract void render(Graphics g);
 
     // getters en setters
