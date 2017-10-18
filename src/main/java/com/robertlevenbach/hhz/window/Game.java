@@ -1,6 +1,10 @@
 package com.robertlevenbach.hhz.window;
 
 
+import com.robertlevenbach.hhz.Objects.Player;
+import com.robertlevenbach.hhz.framework.KeyInput;
+import com.robertlevenbach.hhz.framework.Objectid;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 
@@ -24,7 +28,10 @@ public class Game extends Canvas implements Runnable {
 
         handler=new Handler();
 
+        handler.addObject(new Player(100,100, Objectid.Player));
         handler.createLevel();
+
+        this.addKeyListener(new KeyInput((handler)));
 
     }
 
@@ -42,7 +49,6 @@ public class Game extends Canvas implements Runnable {
      * Deze class zorgt voor dat de GameLoopt
      */
     public void run() {
-
         init();
         this.requestFocus();
         long lastTime = System.nanoTime();

@@ -1,6 +1,7 @@
 package com.robertlevenbach.hhz.window;
 
 import com.robertlevenbach.hhz.Objects.Block;
+import com.robertlevenbach.hhz.Objects.Player;
 import com.robertlevenbach.hhz.framework.GameObject;
 import com.robertlevenbach.hhz.framework.Objectid;
 
@@ -64,6 +65,13 @@ public class Handler {
         for(int xx=0;xx<Game.WIDTH+32;xx+= 32) {
             addObject(new Block(xx, Game.HEIGHT-32, Objectid.Block ));
         }
+        for(int yy=0;yy<Game.HEIGHT;yy+=32){
+            addObject((new Block(Game.WIDTH-33,yy, Objectid.Block)));
+        }
+        for(int yy=0;yy<Game.HEIGHT;yy+=32){
+            addObject((new Block(0,yy, Objectid.Block)));
+        }
+
     }
 
 }

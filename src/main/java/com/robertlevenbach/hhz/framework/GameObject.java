@@ -11,9 +11,29 @@ public abstract class GameObject {
     protected float x;
     protected float y;
     protected Objectid id;
-    //velocity
+
+    //velocity(ZWAARTEKRACHT)
     protected float velX =0;
     protected float velY=0;
+
+    public boolean isFalling() {
+        return falling;
+    }
+
+    public void setFalling(boolean falling) {
+        this.falling = falling;
+    }
+
+    public boolean isJumping() {
+        return jumping;
+    }
+
+    public void setJumping(boolean jumping) {
+        this.jumping = jumping;
+    }
+
+    protected boolean falling = true;
+    protected boolean jumping = false;
 
 
     public GameObject(float x, float y, Objectid id){
@@ -50,11 +70,12 @@ public abstract class GameObject {
     public  float getVelY(){
         return velY;
     }
-    public  void setVelX(float x){
-        this.velX=x;
+
+    public void setVelX(float velX){
+        this.velX = velX;
     }
-    public  void setVelY(float y){
-        this.velY=y;
+    public void setVelY(float velY) {
+        this.velY = velY;
     }
 
     public Objectid getId(){
