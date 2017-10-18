@@ -1,14 +1,8 @@
 package com.robertlevenbach.hhz.window;
 
-import com.robertlevenbach.hhz.Objects.Test;
-import com.robertlevenbach.hhz.framework.GameObject;
-import com.robertlevenbach.hhz.framework.Objectid;
-import com.sun.corba.se.spi.ior.ObjectId;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.util.LinkedList;
-import java.util.Random;
 
 /**
  * Alle objecten(spelers, guns, etc.) in het spel extenden deze class "Game"> alleen effecten niet.
@@ -18,18 +12,20 @@ public class Game extends Canvas implements Runnable {
     private boolean running=false;
     private Thread thread;
 
+    public static int WIDTH, HEIGHT;
+
     //Handler object
     Handler handler;
 
     //init methode start alles voor de loop(dus bouwt alles op)
     private void init() {
+        WIDTH= getWidth();
+        HEIGHT=getHeight();
+
         handler=new Handler();
 
-        Random rand= new Random();
+        handler.createLevel();
 
-        for(int i=0;i<50;i++) {
-            handler.addObject(new Test(rand.nextInt(500), rand.nextInt(500), Objectid.Test));
-        }
     }
 
     public synchronized void start(){

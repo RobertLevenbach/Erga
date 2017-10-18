@@ -1,6 +1,8 @@
 package com.robertlevenbach.hhz.window;
 
+import com.robertlevenbach.hhz.Objects.Block;
 import com.robertlevenbach.hhz.framework.GameObject;
+import com.robertlevenbach.hhz.framework.Objectid;
 
 import java.awt.*;
 import java.util.LinkedList;
@@ -51,6 +53,17 @@ public class Handler {
 
     public void removeObject(GameObject object){
         this.objects.remove(object);
+    }
+
+    /**
+     * Method om een level te creëren
+     */
+
+    public void createLevel(){
+
+        for(int xx=0;xx<Game.WIDTH+32;xx+= 32) {
+            addObject(new Block(xx, Game.HEIGHT-32, Objectid.Block ));
+        }
     }
 
 }

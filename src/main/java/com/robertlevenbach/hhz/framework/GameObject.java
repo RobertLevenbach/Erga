@@ -26,17 +26,39 @@ public abstract class GameObject {
     public abstract void tick(LinkedList<GameObject> object);
     public abstract void render(Graphics g);
 
+    //Dit geeft de collision bounding voor de player
+    public abstract Rectangle getBounds();
+
     // getters en setters
-    public abstract float getX();
-    public abstract float getY();
-    public abstract void setX(float x);
-    public abstract void setY(float y);
+    public  float getX(){
+        return x;
+    }
+    public  float getY(){
+        return y;
+    }
 
-    public abstract float getVelX();
-    public abstract float getVelY();
-    public abstract void setVelX(float x);
-    public abstract void setVelY(float y);
+    public  void setX(float x){
+        this.x=x;
+    }
+    public  void setY(float y){
+        this.y=y;
+    }
 
-    public abstract Objectid getId();
+    public  float getVelX(){
+        return velX;
+    }
+    public  float getVelY(){
+        return velY;
+    }
+    public  void setVelX(float x){
+        this.velX=x;
+    }
+    public  void setVelY(float y){
+        this.velY=y;
+    }
+
+    public Objectid getId(){
+        return id;
+    }
 
 }
