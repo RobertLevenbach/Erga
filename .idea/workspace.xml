@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="460a5507-889e-4926-8e95-6b539e55158b" name="Default" comment="" />
+    <list default="true" id="460a5507-889e-4926-8e95-6b539e55158b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,7 +45,7 @@
       <file leaf-file-name="Handler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/robertlevenbach/hhz/window/Handler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
+            <state relative-caret-position="521">
               <caret line="62" column="36" lean-forward="false" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -134,11 +136,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/robertlevenbach/hhz/window/Window.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robertlevenbach/hhz/Objects/Block.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robertlevenbach/hhz/framework/KeyInput.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/robertlevenbach/hhz/window/Handler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robertlevenbach/hhz/framework/Objectid.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robertlevenbach/hhz/window/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robertlevenbach/hhz/Objects/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/robertlevenbach/hhz/window/Camera.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/robertlevenbach/hhz/window/Handler.java" />
       </list>
     </option>
   </component>
@@ -149,7 +151,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="966" />
     <option name="width" value="964" />
     <option name="height" value="1047" />
@@ -447,7 +449,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -864,7 +866,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/robertlevenbach/hhz/window/Handler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
+        <state relative-caret-position="521">
           <caret line="62" column="36" lean-forward="false" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
