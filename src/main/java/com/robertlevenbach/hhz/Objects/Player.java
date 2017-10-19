@@ -10,7 +10,7 @@ import java.util.LinkedList;
 public class Player extends GameObject {
     private float width= 48;
     private float height=96;
-    private float gravity = 0.05f;
+    private float gravity = 0.5f;
     private final float MAX_SPEED=10;
 
     private Handler handler;
@@ -44,9 +44,13 @@ public class Player extends GameObject {
 
             if(tempObject.getId()==Objectid.Block){
                 if(getBounds().intersects(tempObject.getBounds())){
+                    y=tempObject.getY()- height;
                     velY=0;
                     falling=false;
                     jumping=false;
+                }
+                else{
+                    falling=true;
                 }
             }
         }

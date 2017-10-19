@@ -23,11 +23,12 @@ public class KeyInput extends KeyAdapter{
 
             //Als de player iets doet
             if(tempObject.getId()== Objectid.Player){
-                if(key==KeyEvent.VK_D){
-                    tempObject.setVelX(5);
-                }
-                if(key==KeyEvent.VK_A){
-                    tempObject.setVelX(-5);
+                //Als de player A of D klikt
+                if(key==KeyEvent.VK_D) tempObject.setVelX(5);
+                if(key==KeyEvent.VK_A) tempObject.setVelX(-5);
+                //Als de player wilt springen
+                if(key==KeyEvent.VK_W){
+                        tempObject.setVelY(-10);
                 }
             }
         }
