@@ -35,11 +35,11 @@ public class Game extends Canvas implements Runnable {
         BufferedImageLoader loader= new BufferedImageLoader();
 
         //Loading the level
-        level=loader.loadImage("/LevelFirst.png");
 
         handler=new Handler();
 
         cam=new Camera(0,0);
+        level=loader.loadImage("/LevelFirst.png");
 
         loadImageLevel(level);
 
@@ -162,10 +162,15 @@ public class Game extends Canvas implements Runnable {
 
                 //255 is max colorspectrum
                 //Bij alle drie weetje dat je wit hebt!
-                if(red == 255 && green ==255 && blue==255){
-                    handler.addObject(new Block(xx*32,yy*32,Objectid.Block));
+                if(red == 255 && green ==255 && blue==255) {
+                    handler.addObject(new Block(xx * 32, yy * 32, Objectid.Block));
+                    System.out.println(red+ " "+ green+ " "+blue);
                 }
-                
+
+                if(red == 0 && green==255 && blue==0 ) {
+                    handler.addObject(new Player(100, 100,handler, Objectid.Player));
+                }
+
             }
         }
 
