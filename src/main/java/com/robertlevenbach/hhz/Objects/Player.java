@@ -51,13 +51,10 @@ public class Player extends GameObject {
                 }
                 else{
                     falling=true;
-                    jumping=false;
                 }
                 if(getBoundsTop().intersects(tempObject.getBounds())){
                     y=tempObject.getY()+32;
-                    setVelY(gravity);
-                    falling=true;
-                    jumping=false;
+                    setVelY(0);
                 }
                 if(getBoundsLeft().intersects(tempObject.getBounds())){
                     x=tempObject.getX()+32;

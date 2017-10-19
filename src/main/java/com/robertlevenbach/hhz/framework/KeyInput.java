@@ -31,7 +31,8 @@ public class KeyInput extends KeyAdapter{
                     tempObject.setVelX(-5);
                 }
                 //Als de player wilt springen
-                if(key==KeyEvent.VK_W){
+                if(key==KeyEvent.VK_W && tempObject.isJumping()==false){
+                    tempObject.setJumping(true);
                         tempObject.setVelY(-15);
                 }
             }

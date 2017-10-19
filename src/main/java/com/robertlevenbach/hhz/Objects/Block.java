@@ -10,7 +10,7 @@ import java.util.LinkedList;
  * je maakt hem hier abstract, zodat je methodes weg kan laten van de superclass.
  * zo kan je eigen methodes toevoegen zoals jump voor de player e.d.
  */
-public  class Block extends GameObject {
+public  class  Block extends GameObject {
 
     public Block(float x, float y, Objectid id) {
         super(x, y, id);
