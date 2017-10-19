@@ -27,7 +27,6 @@ public class Handler {
     public void tick(){
         for(int i =0; i<objects.size();i++){
             tempObject=objects.get(i);
-
             tempObject.tick(objects);
         }
     }
@@ -35,7 +34,6 @@ public class Handler {
     public void render(Graphics g){
         for(int i =0; i<objects.size();i++){
             tempObject=objects.get(i);
-
             tempObject.render(g);
         }
     }
@@ -70,6 +68,9 @@ public class Handler {
         }
         for(int yy=0;yy<Game.HEIGHT;yy+=32){
             addObject((new Block(0,yy, Objectid.Block)));
+        }
+        for(int mm=96; mm<576;mm+=32 ){
+            addObject(new Block(mm+64,384,Objectid.Block));
         }
 
     }

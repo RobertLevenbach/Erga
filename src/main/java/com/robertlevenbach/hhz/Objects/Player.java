@@ -2,6 +2,7 @@ package com.robertlevenbach.hhz.Objects;
 
 import com.robertlevenbach.hhz.framework.GameObject;
 import com.robertlevenbach.hhz.framework.Objectid;
+import com.robertlevenbach.hhz.window.Handler;
 
 import java.awt.*;
 import java.util.LinkedList;
@@ -12,8 +13,11 @@ public class Player extends GameObject {
     private float gravity = 0.05f;
     private final float MAX_SPEED=10;
 
-    public Player(float x, float y, Objectid id) {
+    private Handler handler;
+
+    public Player(float x, float y, Handler handler, Objectid id) {
         super(x, y, id);
+        this.handler=handler;
     }
 
     public void tick(LinkedList<GameObject> object) {
@@ -30,6 +34,21 @@ public class Player extends GameObject {
                 velY=MAX_SPEED;
             }
 
+        }
+        Collision(object);
+    }
+
+    private void Collision(LinkedList<GameObject> object){
+        for(int i=0; i< handler.objects.size(); i++){
+            GameObject tempObject = handler.objects.get(i);
+
+            if(tempObject.getId()==Objectid.Block){
+                if(getBounds().intersects(tempObject.getBounds())){
+                    velY=0;
+                    falling=false;
+                    jumping=false;
+                }
+            }
         }
     }
 

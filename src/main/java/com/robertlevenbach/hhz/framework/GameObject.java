@@ -70,12 +70,11 @@ public abstract class GameObject {
     public  float getVelY(){
         return velY;
     }
-
-    public void setVelX(float velX){
-        this.velX = velX;
+    public  void setVelX(float x){
+        this.velX=x;
     }
-    public void setVelY(float velY) {
-        this.velY = velY;
+    public  void setVelY(float y){
+        this.velY=y;
     }
 
     public Objectid getId(){
