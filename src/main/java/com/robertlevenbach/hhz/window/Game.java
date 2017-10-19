@@ -18,8 +18,9 @@ public class Game extends Canvas implements Runnable {
 
     public static int WIDTH, HEIGHT;
 
-    //Handler object
+    //objecten
     Handler handler;
+    Camera cam;
 
     //init methode start alles voor de loop(dus bouwt alles op)
     private void init() {
@@ -27,6 +28,8 @@ public class Game extends Canvas implements Runnable {
         HEIGHT=getHeight();
 
         handler=new Handler();
+
+        cam=new Camera(0,0);
 
         handler.addObject(new Player(100, 100,handler, Objectid.Player));
         handler.createLevel();
@@ -85,6 +88,11 @@ public class Game extends Canvas implements Runnable {
 
     private void tick(){
         handler.tick();
+        for(int i=0; i<handler.objects.size();i++) {
+            if(handler.objects.get(i).getId()==Objectid.Player) {
+                cam.tick(handler.objects.get(i));
+            }
+        }
     }
 
 
@@ -106,12 +114,17 @@ public class Game extends Canvas implements Runnable {
 
         //Nu de graphics bouwen
         Graphics g = bs.getDrawGraphics();
+        //Voor de camera 'cast' je nu graphics 2d, dit doe je voor de functie translate die hieronder wordt gebruikt
+        Graphics2D g2d = (Graphics2D) g;
         //////////////////////////////////// Alles wordt tussen deze lijnen getekend!
         g.setColor(Color.BLUE);
         g.fillRect(0,0, getWidth(), getHeight());
 
+        //Deze zin hieronder translates alles dat die sandwiched> alles hiertussen wordt door de camera ge-effect
+        g2d.translate(cam.getX(), cam.getY());                          // begin of cam
         handler.render(g);
 
+        g2d.translate(-cam.getX(), -cam.getY());                         // end of cam
         ////////////////////////////////
         g.dispose();
         bs.show();

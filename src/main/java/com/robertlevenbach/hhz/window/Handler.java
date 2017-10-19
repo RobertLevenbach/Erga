@@ -60,12 +60,12 @@ public class Handler {
 
     public void createLevel(){
 
-        for(int xx=0;xx<Game.WIDTH+32;xx+= 32) {
-            addObject(new Block(xx, Game.HEIGHT-32, Objectid.Block ));
+        for(int xx=0;xx<Game.WIDTH*2;xx+= 32) {
+            addObject(new Block(xx, Game.HEIGHT-33, Objectid.Block ));
         }
-        for(int yy=0;yy<Game.HEIGHT;yy+=32){
-            addObject((new Block(Game.WIDTH-33,yy, Objectid.Block)));
-        }
+//        for(int yy=0;yy<Game.HEIGHT;yy+=32){
+//            addObject((new Block(Game.WIDTH-32,yy, Objectid.Block)));
+//        }
         for(int yy=0;yy<Game.HEIGHT;yy+=32){
             addObject((new Block(0,yy, Objectid.Block)));
         }
