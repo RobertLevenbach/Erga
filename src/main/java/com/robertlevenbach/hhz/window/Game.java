@@ -1,12 +1,15 @@
 package com.robertlevenbach.hhz.window;
 
 
+import com.robertlevenbach.hhz.Objects.Block;
 import com.robertlevenbach.hhz.Objects.Player;
+import com.robertlevenbach.hhz.framework.GameObject;
 import com.robertlevenbach.hhz.framework.KeyInput;
 import com.robertlevenbach.hhz.framework.Objectid;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 
 /**
  * Alle objecten(spelers, guns, etc.) in het spel extenden deze class "Game"> alleen effecten niet.
@@ -18,6 +21,8 @@ public class Game extends Canvas implements Runnable {
 
     public static int WIDTH, HEIGHT;
 
+    private BufferedImage level = null;
+
     //objecten
     Handler handler;
     Camera cam;
@@ -27,12 +32,19 @@ public class Game extends Canvas implements Runnable {
         WIDTH= getWidth();
         HEIGHT=getHeight();
 
+        BufferedImageLoader loader= new BufferedImageLoader();
+
+        //Loading the level
+        level=loader.loadImage("/LevelFirst.png");
+
         handler=new Handler();
 
         cam=new Camera(0,0);
 
-        handler.addObject(new Player(100, 100,handler, Objectid.Player));
-        handler.createLevel();
+        loadImageLevel(level);
+
+        //handler.addObject(new Player(100, 100,handler, Objectid.Player));
+        //handler.createLevel();
 
         this.addKeyListener(new KeyInput((handler)));
 
@@ -128,6 +140,34 @@ public class Game extends Canvas implements Runnable {
         ////////////////////////////////
         g.dispose();
         bs.show();
+
+    }
+
+    /**
+     * Nieuwe methode voor image level loader
+     */
+
+    public void loadImageLevel(BufferedImage image){
+        int w= image.getWidth();
+        int h= image.getHeight();
+
+        //loopen door elke pixel vd image
+        for(int xx=0;xx<h;xx++){
+            for(int yy=0; yy <w;yy++){
+                //dit geeft voor elke pixel een RGB value. Lees: welke kleur die is
+                int pixel= image.getRGB(xx,yy);
+                int red = (pixel>> 16) & 0xff;
+                int green = (pixel >> 8) & 0xff;
+                int blue=  (pixel) & 0xff;
+
+                //255 is max colorspectrum
+                //Bij alle drie weetje dat je wit hebt!
+                if(red == 255 && green ==255 && blue==255){
+                    handler.addObject(new Block(xx*32,yy*32,Objectid.Block));
+                }
+                
+            }
+        }
 
     }
 

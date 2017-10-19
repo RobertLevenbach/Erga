@@ -29,11 +29,11 @@ public class Camera{
 
     public void tick(GameObject player) {
         //camera naar de player locker
-        float move = -player.getX() + Game.WIDTH/2 ;
+        float moveX = -player.getX() + Game.WIDTH/2 ;
 
-        x += (move - x) * 0.1;
+        x += (moveX - x) * 0.1;
 
-        float moveY = -player.getY() + 64+ Game.HEIGHT/2;
+        float moveY = -player.getY() + 32+ Game.HEIGHT/2;
 
         y += (moveY - y) * 0.1;
     }
