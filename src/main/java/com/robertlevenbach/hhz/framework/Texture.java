@@ -35,7 +35,7 @@ public class Texture {
 
     private void getTextures() {
         block[0]=bs.grabImage(1,1,32,32);  //eerste block
-        block[1]=bs.grabImage(1,3,32,32);  //tweede block
+        block[1]=bs.grabImage(3,1,32,32);  //tweede block
 
         player[0]=bs.grabImage(3,2,32,32);
         player[1]=ps.grabImage(1,6,32,32);
