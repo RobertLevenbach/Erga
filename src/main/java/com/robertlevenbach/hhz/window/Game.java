@@ -173,7 +173,7 @@ public class Game extends Canvas implements Runnable {
                     handler.addObject(new Block(xx * 32, yy * 32,1, Objectid.Block));
                 }
                 if(red == 0 && green==255 && blue==0 ) {
-                    handler.addObject(new Player(100, 100,handler, Objectid.Player));
+                    handler.addObject(new Player(32, 32,handler, Objectid.Player));
                 }
 
             }

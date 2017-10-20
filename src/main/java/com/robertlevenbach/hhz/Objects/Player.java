@@ -10,8 +10,8 @@ import java.awt.*;
 import java.util.LinkedList;
 
 public class Player extends GameObject {
-    private float width= 48;
-    private float height=96;
+    private float width= 32;
+    private float height=32;
     private float gravity = 0.5f;
     private final float MAX_SPEED=10;
 
@@ -74,17 +74,17 @@ public class Player extends GameObject {
     }
 
     public void render(Graphics g) {
-//        g.setColor(Color.GREEN);
-//        g.fillRect((int)x,(int)y,(int)width,(int)height);
-//
-//        // je gaat nu van g een 2d g maken om de collision boxes te maken
-//        Graphics2D g2d = (Graphics2D) g;
-//
-//        g.setColor(Color.BLACK);
-//        g2d.draw(getBounds());
-//        g2d.draw(getBoundsRight());
-//        g2d.draw(getBoundsLeft());
-//        g2d.draw(getBoundsTop());
+        g.setColor(Color.GREEN);
+        g.fillRect((int)x,(int)y,(int)width,(int)height);
+
+        // je gaat nu van g een 2d g maken om de collision boxes te maken
+        Graphics2D g2d = (Graphics2D) g;
+
+        g.setColor(Color.BLACK);
+        g2d.draw(getBounds());
+        g2d.draw(getBoundsRight());
+        g2d.draw(getBoundsLeft());
+        g2d.draw(getBoundsTop());
 
         g.drawImage(tex.player[0],(int) x, (int) y, null);
 
