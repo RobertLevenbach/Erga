@@ -2,6 +2,8 @@ package com.robertlevenbach.hhz.Objects;
 
 import com.robertlevenbach.hhz.framework.GameObject;
 import com.robertlevenbach.hhz.framework.Objectid;
+import com.robertlevenbach.hhz.framework.Texture;
+import com.robertlevenbach.hhz.window.Game;
 import com.robertlevenbach.hhz.window.Handler;
 
 import java.awt.*;
@@ -14,6 +16,10 @@ public class Player extends GameObject {
     private final float MAX_SPEED=10;
 
     private Handler handler;
+
+    //Door deze method in de game class te maken kan je hem zo aanroepen voor alle classes
+    Texture tex= Game.getInstance();
+    private int type;
 
     public Player(float x, float y, Handler handler, Objectid id) {
         super(x, y, id);
@@ -68,17 +74,21 @@ public class Player extends GameObject {
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.GREEN);
-        g.fillRect((int)x,(int)y,(int)width,(int)height);
+//        g.setColor(Color.GREEN);
+//        g.fillRect((int)x,(int)y,(int)width,(int)height);
+//
+//        // je gaat nu van g een 2d g maken om de collision boxes te maken
+//        Graphics2D g2d = (Graphics2D) g;
+//
+//        g.setColor(Color.BLACK);
+//        g2d.draw(getBounds());
+//        g2d.draw(getBoundsRight());
+//        g2d.draw(getBoundsLeft());
+//        g2d.draw(getBoundsTop());
 
-        // je gaat nu van g een 2d g maken om de collision boxes te maken
-        Graphics2D g2d = (Graphics2D) g;
+        g.drawImage(tex.player[0],(int) x, (int) y, null);
 
-        g.setColor(Color.BLACK);
-        g2d.draw(getBounds());
-        g2d.draw(getBoundsRight());
-        g2d.draw(getBoundsLeft());
-        g2d.draw(getBoundsTop());
+
     }
 
     public Rectangle getBounds() {

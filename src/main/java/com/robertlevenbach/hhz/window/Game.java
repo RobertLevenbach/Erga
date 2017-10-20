@@ -6,6 +6,7 @@ import com.robertlevenbach.hhz.Objects.Player;
 import com.robertlevenbach.hhz.framework.GameObject;
 import com.robertlevenbach.hhz.framework.KeyInput;
 import com.robertlevenbach.hhz.framework.Objectid;
+import com.robertlevenbach.hhz.framework.Texture;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -26,11 +27,14 @@ public class Game extends Canvas implements Runnable {
     //objecten
     Handler handler;
     Camera cam;
+    static Texture tex;
 
     //init methode start alles voor de loop(dus bouwt alles op)
     private void init() {
         WIDTH= getWidth();
         HEIGHT=getHeight();
+
+        tex=new Texture();
 
         BufferedImageLoader loader= new BufferedImageLoader();
 
@@ -163,10 +167,11 @@ public class Game extends Canvas implements Runnable {
                 //255 is max colorspectrum
                 //Bij alle drie weetje dat je wit hebt!
                 if(red == 255 && green ==255 && blue==255) {
-                    handler.addObject(new Block(xx * 32, yy * 32, Objectid.Block));
-                    System.out.println(red+ " "+ green+ " "+blue);
+                    handler.addObject(new Block(xx * 32, yy * 32,0, Objectid.Block));
                 }
-
+                if(red == 255 && green ==0 && blue==0) {
+                    handler.addObject(new Block(xx * 32, yy * 32,1, Objectid.Block));
+                }
                 if(red == 0 && green==255 && blue==0 ) {
                     handler.addObject(new Player(100, 100,handler, Objectid.Player));
                 }
@@ -176,6 +181,15 @@ public class Game extends Canvas implements Runnable {
 
     }
 
+
+    /**
+     * omdat je voor elke class(player, block, etc.) textures moet maken, maak je een algemene method
+     */
+
+    public static Texture getInstance(){
+
+        return tex;
+    }
 
     public static void main(String[] args){
         new Window(800, 600, "HHZ Platformer", new Game());
